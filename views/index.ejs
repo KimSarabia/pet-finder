@@ -1,5 +1,35 @@
-extends layout
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pet Finder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel='stylesheet' href='./css/style.css'/>
 
-block content
-  h1= title
-  p Welcome to #{title}
+    <script src="/bower_components/jquery"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="js/modules.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+    <body ng-app = 'petfinder'>
+        <nav class="light-blue lighten-1" role="navigation">
+          <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">PetFinder</a>
+            <ul class="right hide-on-med-and-down">
+              <li><a ui-sref="dash">Dashboard</a></li>
+              <li><a ui-sref="pets">Pets</a></li>
+              <li><a ui-sref="owners">Owners</a></li>
+            </ul>
+            <ul id="nav-mobile" class="side-nav">
+              <li><a ui-sref="dash">Dashboard</a></li>
+              <li><a ui-sref="pets">Pets</a></li>
+              <li><a ui-sref="owners">Owners</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+        <ui-view></ui-view>
+      </body>
+</html>
