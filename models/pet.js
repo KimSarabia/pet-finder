@@ -11,7 +11,9 @@ var Pet = mongoose.model('Pet',{
   petSpecies:String,
   petBreed: String,
   photoUrl: String,
-  owners: [{type: mongoose.Schema.Types.ObjectId, ref: "Owner"}]
+  owners: [{type: mongoose.Schema.Types.ObjectId, ref: "Owner"}],
+  createdAt: { type: Date, default: Date.now },
+  adopted: { type: Boolean, default: false }
 });
 
 module.exports = Pet;

@@ -22,18 +22,24 @@ a {
 }
 
 nav .brand-logo {
+    font-family: 'Arvo', serif;
     color: #1F3E75;
 }
 
 nav ul a {
+    font-family: 'Arvo', serif;
     color: #1F3E75;
 }
 
 h1{
   text-align: center;
-  color: #FFFFFF;
+  font-family: 'Arvo', serif;
+  color: #FF6B5A;
 }
 
+h5{
+  color: #FFFFFF;
+}
 /*ANIMATION START*/
 /*html, body {
   height: 100%;
