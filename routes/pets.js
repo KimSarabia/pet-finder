@@ -3,12 +3,21 @@
 var express = require('express');
 var router = express.Router();
 
-var Owner = require('../models/owner');
 var Pet = require('../models/pet');
 
-/* GET home page. */
-router.get('/', function(req, res) {
-  Pet.find('index', { title: 'Express' });
+router.get('/', function(req, res, next) {
+  Pet.find({},function(err, pets){
+    if(err) return res.status(400).send(err);
+    res.send(pets);
+  });
 });
 
+router.post('/', function(req,res) {
+  var pet = new Pet(req.body);
+  pet.save(function(err, savedPet){
+    res.status(err ? 400 : 200).send(err || savedPet);
+  });
+});
+
+// router.put()
 module.exports = router;

@@ -7,12 +7,19 @@ var Owner = require('../models/owner');
 var Pet = require('../models/pet');
 
 /* GET users listing. */
+
 router.get('/', function(req, res, next) {
-  Owner.find({}, function(err,owners) {
-    if(err){
-      return res.status(400).send(err);
-    }
+  Owner.find({}, function(err, lients){
+    res.status(err ? 400 : 200).send(err || owners);
   });
 });
+
+router.post('/', function(req,res){
+  Owner.create(req.body, function(err,owner){
+    res.status(err ? 400 : 200).send(err || client);
+  });
+});
+
+
 
 module.exports = router;

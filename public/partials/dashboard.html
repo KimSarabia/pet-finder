@@ -1,18 +1,28 @@
+<div class = "container">
 <div ng-controller="dashCtrl">
   <h1>DASHBOARD</h1>
 
-    <a ng-show ="allShow" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons" ng-click="addNewQuest()">Add</i></a>
+  <div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
+  <a class="btn-floating btn-large blue">
+    <i class="large material-icons">+</i>
+  </a>
+  <ul>
+    <li><a ng-show ="allShow" class="btn-floating blue"><i class="material-icons" ng-click="addNewPet()">+</i></a></li>
+  </ul>
+</div>
 
-    <div class="allQuests" ng-show="allShow">
+    <!-- <a ng-show ="allShow" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons" ng-click="addNewPet()">Add</i></a> -->
 
-        <div class="row"  ng-repeat="quest in allQuests track by $index">
+    <div class="allPets" ng-show="allShow">
+
+        <div class="row"  ng-repeat="pets in allPets track by $index">
           <div class="col s6 m6">
             <div class="card blue-grey darken-1">
               <div class="card-content white-text">
-                <span class="card-title">{{quest.category}}</span>
-                <p>Question: {{quest.question}}</p>
-                <p>Hint: {{quest.hint}}</p>
-                <p>Answer: {{quest.answer}}</p>
+                <span class="card-title">{{pet.name}}</span>
+                <p>Species: {{pet.species}}</p>
+                <p>Breed: {{pet.breed}}</p>
+                <p>Age: {{pet.age}}</p>
               </div>
                 <div class="card-action">
                   <a ng-click="modifyQ(this)">Modify</a>
@@ -23,67 +33,62 @@
         </div>
     </div>
 
-      <form class="col s12" ng-show="modShow">
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="category" type="text" class="validate" ng-model="update.category">
-            <label class ="active" for="Category">Category: </label>
-          </div>
-          <div class="input-field col s6">
-            <input id="question" type="text" class="validate" ng-model="update.question">
-            <label class ="active" for="question">Question: </label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input class ="validate" id="hint" type="text" ng-model="update.hint">
-            <label class ="active" for="hint">Hint: </label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="answer" type="text" class="validate" ng-model="update.answer">
-            <label class ="active" for="answer">Answer: </label>
-          </div>
-        </div>
-        <div class="row">
-    <button ng-click ="updateQ(this)" class="btn waves-effect waves-light" type="submit" name="update">Update
-    </button>
-    <button ng-click ="quitUpdate()" class="btn waves-effect waves-light" type="submit" name="quit">Exit
-    </button>
-        </div>
-      </form>
 
-  <div class="addNewQ" ng-show="addShow">
-        <form name ="addNew" class="col s12" >
+  <div class="addNewP" ng-show="addShow">
+        <form name ="addNew" class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input required id="category" type="text" class="validate" ng-model="newQ.category">
-              <label class ="active" for="Category">Category: </label>
+              <input required id="price" type="text" class="validate" ng-model="newP.price">
+              <label class ="active" for="price">Price:</label>
             </div>
           <div class="input-field col s6">
-            <input required id="question" type="text" class="validate" ng-model="newQ.question">
-            <label class ="active" for="question">Question: </label>
+            <input required id="petnumber" type="text" class="validate" ng-model="newP.pet">
+            <label class ="active" for="petNumber">Number:</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input required id="hint" type="text" ng-model="newQ.hint">
-            <label class ="active" for="hint">Hint: </label>
+            <input required id="petAge" type="text" ng-model="newP.age">
+            <label class ="active" for="petAge">Age:</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input required id="answer" type="text" class="validate" ng-model="newQ.answer">
-            <label for="answer">Answer: </label>
+            <input required id="petName" type="text" class="validate" ng-model="newP.name">
+            <label class ="active" for="petName">Name:</label>
           </div>
         </div>
         <div class="row">
-      <button ng-disabled="!(!!newQ.category && !!newQ.question  && !!newQ.hint && !!newQ.answer)" ng-click ="addNewQ(newQ)" class="btn waves-effect waves-light" type="submit" name="Add">Add
+          <div class="input-field col s12">
+            <input required id="petSpecies" type="text" class="validate" ng-model="newP.species">
+            <label class ="active" for="petSpecies">Species:</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input required id="petBreed" type="text" class="validate" ng-model="newP.breed">
+            <label class ="active" for="petBreed">Breed:</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input required id="photoUrl" type="text" class="validate" ng-model="newP.photo">
+            <label class ="active" for="photoUrl">Photo:</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input required id="owners" type="text" class="validate" ng-model="newP.owners">
+            <label class ="active" for="owners">Owners:</label>
+          </div>
+        </div>
+        <div class="row">
+      <button ng-disabled="!(!!newP.price && !!newP.pet  && !!newP.hint && !!newP.answer)" ng-click ="addNewP(newP)" class="btn waves-effect waves-light" type="submit" name="Add">Add
       </button>
       <button ng-click ="quitAdd()" class="btn waves-effect waves-light" type="submit" name="quit">Exit
       </button>
         </div>
       </form>
   </div>
+</div>
 </div>

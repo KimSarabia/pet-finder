@@ -3,8 +3,7 @@
 var mongoose = require('mongoose');
 var moment = require('moment');
 var Pet;
-
-var petSchema = new mongoose.Schema({
+var Pet = mongoose.model('Pet',{
   price: Number,
   petNumber: Number,
   petAge: Number,
@@ -14,7 +13,5 @@ var petSchema = new mongoose.Schema({
   photoUrl: String,
   owners: [{type: mongoose.Schema.Types.ObjectId, ref: "Owner"}]
 });
-
-Pet = mongoose.model('pet', petSchema);
 
 module.exports = Pet;

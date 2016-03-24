@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var routes = require('./routes/index');
+var owners = require('./routes/owners');
+var pets = require('./routes/pets');
+
 var app = express();
 
 var mongoose = require('mongoose');
@@ -26,9 +30,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', require('./routes/index'));
-app.use('/owners', require('./routes/owners'));
-app.use('/pets', require('./routes/pets'));
+app.use('/', routes);
+app.use('/owners', owners);
+app.use('/pets', pets);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

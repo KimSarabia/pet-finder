@@ -15,15 +15,17 @@
     <script src="js/services.js"></script>
   </head>
     <body ng-app = 'petfinder'>
-        <nav class="light-blue lighten-1" role="navigation">
+        <nav class="white" role="navigation">
           <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">PetFinder</a>
             <ul class="right hide-on-med-and-down">
-              <li><a ui-sref="dash">Dashboard</a></li>
+              <li><a ui-sref="home"><i class="fa fa-home"></i></a></li>
+              <li><a ui-sref="dashboard">Dashboard</a></li>
               <li><a ui-sref="pets">Pets</a></li>
               <li><a ui-sref="owners">Owners</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
-              <li><a ui-sref="dash">Dashboard</a></li>
+              <li><a ui-sref="home"><i class="fa fa-home"></i></a></li>
+              <li><a ui-sref="dashboard">Dashboard</a></li>
               <li><a ui-sref="pets">Pets</a></li>
               <li><a ui-sref="owners">Owners</a></li>
             </ul>
