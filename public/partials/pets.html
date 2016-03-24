@@ -16,8 +16,9 @@
           <p>Breed: Australian Cattle Dog</p>
         </div>
         <div class="card-action">
-          <a href="#">Delete</a>
-          <a href="#">Modify</a>
+          <a href="#">Remove</a>
+          <a href="#">Edit</a>
+
         </div>
       </div>
     </div>
@@ -36,7 +37,8 @@
           <p>Breed:</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a ng-click="modifyPet(this)">Pet</a>
+          <a ng-click="deletePet(this)">Delete</a>
         </div>
       </div>
     </div>
